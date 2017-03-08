@@ -220,7 +220,7 @@
                                 <div class="img-options">
                                     <div class="img-options-content">
                                         <div class="push-20">
-                                            <a class="btn btn-sm btn-default" href="detail/{{$media->id}}">View</a>
+                                            <a class="btn btn-sm btn-default" href="detail/{{$media->media_id}}">View</a>
                                         </div>
                                     </div>
                                 </div>
@@ -229,7 +229,7 @@
                             <div class="block-content">
                                 <div class="push-10">
                                     <div class="h4 font-w600 text-success pull-right push-10-l"><i class="fa fa-heart pull-right" aria-hidden="true"></i>{{$media->vote_average}}</div>
-                                    <a class="h4" href="frontend_ecom_product.html">{{$media->title}}</a>
+                                    <a class="h4" href="detail/{{$media->media_id}}">{{$media->title}}</a>
                                 </div>
                                 <?php $release=date("m/d/Y",strtotime($media->release_date));?>
                                 <p class="text-muted">Release Date: <?php echo $release; ?></p>
@@ -258,7 +258,7 @@
                                         <div class="img-options">
                                             <div class="img-options-content">
                                                 <div class="push-20">
-                                                    <a class="btn btn-sm btn-default" href="frontend_ecom_product.html">View</a>
+                                                    <a class="btn btn-sm btn-default" href="detail/{{$media->media_id}}">View</a>
                                                 </div>
 
                                             </div>
@@ -267,7 +267,7 @@
                                     <div class="block-content">
                                         <div class="push-10">
                                             <div class="h4 font-w600 text-success pull-right push-10-l"><i class="fa fa-heart pull-right" aria-hidden="true"></i>{{$media->vote_average}}</div>
-                                            <a class="h4" href="frontend_ecom_product.html">{{$media->title}}</a>
+                                            <a class="h4" href="detail/{{$media->media_id}}">{{$media->title}}</a>
                                         </div>
                                         <?php $release=date("m/d/Y",strtotime($media->release_date));?>
                                         <p class="text-muted">Release Date: <?php echo $release; ?></p>
@@ -292,7 +292,7 @@
                                 <div class="img-options">
                                     <div class="img-options-content">
                                         <div class="push-20">
-                                            <a class="btn btn-sm btn-default" href="frontend_ecom_product.html">View</a>
+                                            <a class="btn btn-sm btn-default" href="detail/{{$media->media_id}}">View</a>
                                         </div>
 
                                     </div>
@@ -301,7 +301,7 @@
                             <div class="block-content">
                                 <div class="push-10">
                                     <div class="h4 font-w600 text-success pull-right push-10-l"><i class="fa fa-heart pull-right" aria-hidden="true"></i>{{$media->vote_average}}</div>
-                                    <a class="h4" href="frontend_ecom_product.html">{{$media->title}}</a>
+                                    <a class="h4" href="detail/{{$media->media_id}}">{{$media->title}}</a>
                                 </div>
                                 <?php $release=date("m/d/Y",strtotime($media->release_date));?>
                                 <p class="text-muted">Release Date: <?php echo $release; ?></p>

@@ -215,9 +215,10 @@
                                                     <img class="img-responsive" src="{{$movie_detail->poster}}">
                                                 </a>
                                             </div>
+
                                             <div class="col-xs-4">
 
-                                                <iframe width="300" height="200" src="https://www.youtube.com/embed/gwqSi_ToNPs" frameborder="0" allowfullscreen></iframe>
+                                                <h4>Trailers</h4>
 
 
                                             </div>
@@ -229,24 +230,29 @@
                                         <!-- Vital Info -->
                                         <div class="clearfix">
                                             <div class="pull-right">
-                                                <span class="h2 font-w700 text-success">$58</span>
+                                                <span class="h2 font-w700 text-success">{{$movie_detail->vote_average}}</span>
                                             </div>
                                             <span class="h5">
-                                                        <span class="font-w600 text-success">IN STOCK</span><br><small>200 Available</small>
+                                                        <span class="font-w600 text-success">Rating</span>
                                                     </span>
                                         </div>
                                         <hr>
-                                        <form class="form-inline" action="frontend_ecom_product.html" method="post" onsubmit="return false;">
-                                            <button type="submit" class="btn btn-sm btn-primary pull-right"><i class="fa fa-plus push-5-r"></i> Add to Cart</button>
-                                            <select class="form-control input-sm" id="ecom-license" name="ecom-license" size="1">
-                                                <option value="0" disabled selected>LICENSE</option>
-                                                <option value="simple">Simple</option>
-                                                <option value="multiple">Multiple</option>
-                                            </select>
-                                        </form>
+                                        Status: {{$movie_detail->category}}
                                         <hr>
-                                        <p>Potenti elit lectus augue eget iaculis vitae etiam, ullamcorper etiam bibendum ad feugiat magna accumsan dolor, nibh molestie cras hac ac ad massa, fusce ante convallis ante urna molestie vulputate bibendum tempus ante justo arcu erat accumsan adipiscing risus, libero condimentum venenatis sit nisl nisi ultricies sed, fames aliquet consectetur consequat nostra molestie neque nullam scelerisque neque commodo turpis quisque etiam egestas vulputate massa, curabitur tellus massa venenatis congue dolor enim integer luctus, nisi suscipit gravida fames quis vulputate nisi viverra luctus id leo dictum lorem, inceptos nibh orci.</p>
+                                        <p>{{$movie_detail->description}}</p>
                                         <!-- END Vital Info -->
+                                    </div>
+
+                                    <div class="col-xs-12">
+                                        <?php $val=explode(",",$trailers->source);?>
+                                        @foreach($val as $v)
+                                            <div class="col-xs-4">
+
+                                                <iframe width="270" height="270" src="https://www.youtube.com/embed/{{$v}}" frameborder="0" allowfullscreen></iframe>
+
+
+                                            </div>
+                                        @endforeach
                                     </div>
                                     <div class="col-xs-12">
                                         <!-- Author -->

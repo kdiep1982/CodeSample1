@@ -8,4 +8,5 @@ class Media extends Model
 {
     //
     protected $table = 'bingewatch_media';
+    public $primaryKey='media_id';
 }
