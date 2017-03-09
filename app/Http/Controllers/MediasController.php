@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Media;
 use App\Models\Trailer;
+use App\Models\Cast;
+use App\Models\MediaToCast;
+
 class MediasController extends Controller
 {
     //
@@ -21,8 +24,10 @@ class MediasController extends Controller
         $movie_detail = Media::find($id);
         $trailers = Trailer::find($id);
 
+        $casts=Media::find($id)->casts->where('cast_character','!=','')->take(5);
+        $staffs=Media::find($id)->casts->where('department','!=','')->take(5);
 
-        return view ('pages.movie_detail', compact('movie_detail','trailers'));
+        return view ('pages.movie_detail', compact('movie_detail','trailers','casts', 'staffs'));
     }
 
 }

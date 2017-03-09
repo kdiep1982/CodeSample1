@@ -108,97 +108,37 @@
                         </div>
                         <h3>Casts</h3>
                         <div class="block">
+                            @foreach($casts as $cast)
                             <a class="block block-link-hover3 block-transparent remove-margin-b" href="javascript:void(0)">
                                 <div class="block-content block-content-full clearfix">
                                     <div class="pull-right">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar6.jpg" alt="">
+                                        <img class="img-avatar" src="{{$cast->profile}}" alt="">
                                     </div>
                                     <div class="pull-left push-10-t">
-                                        <div class="font-w600 push-5">Rebecca Reid</div>
-                                        <div class="text-muted">50k Sales</div>
+                                        <div class="font-w600 push-5">{{$cast->cast_name}}</div>
+                                        <div class="text-muted">{{$cast->cast_character}}</div>
                                     </div>
                                 </div>
                             </a>
-                            <a class="block block-link-hover3 block-transparent remove-margin-b" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="pull-right">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar10.jpg" alt="">
-                                    </div>
-                                    <div class="pull-left push-10-t">
-                                        <div class="font-w600 push-5">Eric Lawson</div>
-                                        <div class="text-muted">48k Sales</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="block block-link-hover3 block-transparent remove-margin-b" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="pull-right">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar2.jpg" alt="">
-                                    </div>
-                                    <div class="pull-left push-10-t">
-                                        <div class="font-w600 push-5">Ann Parker</div>
-                                        <div class="text-muted">35k Sales</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="block block-link-hover3 block-transparent remove-margin-b" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="pull-right">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar15.jpg" alt="">
-                                    </div>
-                                    <div class="pull-left push-10-t">
-                                        <div class="font-w600 push-5">Donald Barnes</div>
-                                        <div class="text-muted">31k Sales</div>
-                                    </div>
-                                </div>
-                            </a>
+                            @endforeach
                         </div>
                         <h3>Staffs</h3>
                         <div class="block">
+                            @foreach($staffs as $staff)
                             <a class="block block-link-hover3 block-transparent remove-margin-b" href="javascript:void(0)">
                                 <div class="block-content block-content-full clearfix">
                                     <div class="pull-right">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar6.jpg" alt="">
+                                        <img class="img-avatar" src="{{$staff->profile}}" alt="">
                                     </div>
                                     <div class="pull-left push-10-t">
-                                        <div class="font-w600 push-5">Rebecca Reid</div>
-                                        <div class="text-muted">50k Sales</div>
+                                        <div class="font-w600 push-5">{{$staff->cast_name}}</div>
+                                        <div class="text-muted">{{$staff->job}}</div>
                                     </div>
                                 </div>
                             </a>
-                            <a class="block block-link-hover3 block-transparent remove-margin-b" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="pull-right">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar10.jpg" alt="">
-                                    </div>
-                                    <div class="pull-left push-10-t">
-                                        <div class="font-w600 push-5">Eric Lawson</div>
-                                        <div class="text-muted">48k Sales</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="block block-link-hover3 block-transparent remove-margin-b" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="pull-right">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar2.jpg" alt="">
-                                    </div>
-                                    <div class="pull-left push-10-t">
-                                        <div class="font-w600 push-5">Ann Parker</div>
-                                        <div class="text-muted">35k Sales</div>
-                                    </div>
-                                </div>
-                            </a>
-                            <a class="block block-link-hover3 block-transparent remove-margin-b" href="javascript:void(0)">
-                                <div class="block-content block-content-full clearfix">
-                                    <div class="pull-right">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar15.jpg" alt="">
-                                    </div>
-                                    <div class="pull-left push-10-t">
-                                        <div class="font-w600 push-5">Donald Barnes</div>
-                                        <div class="text-muted">31k Sales</div>
-                                    </div>
-                                </div>
-                            </a>
+                            @endforeach
+
+
                         </div>
                     </div>
                     <h3>Movie Detail</h3>
@@ -237,7 +177,11 @@
                                                     </span>
                                         </div>
                                         <hr>
-                                        Status: {{$movie_detail->category}}
+                                        Status:
+                                        <div class="pull-right">
+                                            <?php if($movie_detail->release_date > date('Y-m-d')) echo "Upcoming"; else echo"Released";  ?>
+                                        </div>
+
                                         <hr>
                                         <p>{{$movie_detail->description}}</p>
                                         <!-- END Vital Info -->

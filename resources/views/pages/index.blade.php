@@ -220,7 +220,7 @@
                                 <div class="img-options">
                                     <div class="img-options-content">
                                         <div class="push-20">
-                                            <a class="btn btn-sm btn-default" href="detail/{{$media->media_id}}">View</a>
+                                            <a class="btn btn-sm btn-default" href="detail/{{$media->id}}">View</a>
                                         </div>
                                     </div>
                                 </div>
@@ -258,7 +258,7 @@
                                         <div class="img-options">
                                             <div class="img-options-content">
                                                 <div class="push-20">
-                                                    <a class="btn btn-sm btn-default" href="detail/{{$media->media_id}}">View</a>
+                                                    <a class="btn btn-sm btn-default" href="detail/{{$media->id}}">View</a>
                                                 </div>
 
                                             </div>
@@ -292,7 +292,7 @@
                                 <div class="img-options">
                                     <div class="img-options-content">
                                         <div class="push-20">
-                                            <a class="btn btn-sm btn-default" href="detail/{{$media->media_id}}">View</a>
+                                            <a class="btn btn-sm btn-default" href="detail/{{$media->id}}">View</a>
                                         </div>
 
                                     </div>
