@@ -14,4 +14,18 @@ class Media extends Model
         return $this->belongsToMany('App\Models\Cast')->withTimestamps();
     }
 
+    public function genres(){
+        return $this->hasOne('App\Models\Genre');
+    }
+
+    public function companies(){
+        return $this->hasOne('App\Models\Company');
+    }
+
+    public function reviews(){
+        return $this->belongsToMany('App\Models\Review')->withTimestamps();
+    }
+
+
+
 }

@@ -7,6 +7,7 @@ use App\Models\Media;
 use App\Models\Trailer;
 use App\Models\Cast;
 use App\Models\MediaToCast;
+use App\Models\Genre;
 
 class MediasController extends Controller
 {
@@ -25,9 +26,49 @@ class MediasController extends Controller
         $trailers = Trailer::find($id);
 
         $casts=Media::find($id)->casts->where('cast_character','!=','')->take(5);
-        $staffs=Media::find($id)->casts->where('department','!=','')->take(5);
+        $staffs=Media::find($id)->casts->where('department','=','Production')->take(4);
+        $director = Media::find($id)->casts->where('job','=','Director')->take(1);
+        $genres = Media::find($id)->genres;
+        $companies = Media::find($id)->companies;
+        $reviews = Media::find($id)->reviews;
 
-        return view ('pages.movie_detail', compact('movie_detail','trailers','casts', 'staffs'));
+
+       // return var_dump(($casts));
+        return view ('pages.detail', compact('movie_detail','trailers','casts', 'staffs','genres','companies','reviews','director'));
     }
+    
+
+    public function newArrival(){
+        $new_movies=Media::where([['type','=','Movie'],['status','=','Released'], ['release_date','<=',date('Y-m-d')]])->orderBy('release_date', 'desc')->paginate(16);
+
+        return view('pages.new_arrival',compact('new_movies'));
+    }
+    public function topRated(){
+        $top_rated=Media::where([['type','=','Movie'],['status','=','Released']])->orderBy('vote_average', 'desc')->paginate(16);
+        return view('pages.top_rated', compact('top_rated'));
+    }
+    public function upcoming(){
+        $upcoming=Media::where([['type','=','Movie'],['status','=','Released'], ['release_date','>',date('Y-m-d')]])->orderBy('release_date', 'asc')->paginate(16);
+        return view('pages.upcoming',compact('upcoming'));
+    }
+
+    public function airingToday(){
+        $recent_tvShows = Media::where([['type','=','TV'],['title','!=','']])->orderBy('release_date', 'desc')->paginate(16);
+        return view('pages.airing_today',compact('recent_tvShows'));
+    }
+
+    public function topRatedTV(){
+        $top_rated=Media::where([['type','=','TV']])->orderBy('vote_average', 'desc')->paginate(16);
+        return view('pages.topRated_tv', compact('top_rated'));
+    }
+
+    public function popularTV(){
+        $popular=Media::where([['type','=','TV']])->orderBy('rating', 'desc')->paginate(16);
+        return view('pages.popular_tv', compact('popular'));
+    }
+
+
+
+
 
 }

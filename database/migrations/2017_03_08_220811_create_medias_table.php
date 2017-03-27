@@ -29,6 +29,8 @@ class CreateMediasTable extends Migration
             $table->string('status');
             $table->date('release_date');
             $table->integer('number_of_episodes');
+            $table->integer('number_of_seasons');
+            $table->integer('runtime');
             $table->timestamps();
         });
     }

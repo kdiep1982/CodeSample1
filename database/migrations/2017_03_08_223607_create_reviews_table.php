@@ -15,11 +15,11 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
 
-            $table->integer('id')->unique();
-            
+            $table->string('id',27);
             $table->string('author');
             $table->text('review_content');
             $table->text('review_url');
+            $table->integer('review_rating');
             $table->timestamps();
         });
     }
