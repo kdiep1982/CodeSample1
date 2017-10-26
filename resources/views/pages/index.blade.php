@@ -1,23 +1,36 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="bg-image" style="background-image: url('img/various/hero1.jpg');">
-        <div class="bg-primary-dark-op">
-            <section class="content content-full content-boxed overflow-hidden">
-                <!-- Section Content -->
-                <div class="push-100-t push-50 text-center">
-                    <h1 class="h2 text-white push-10 visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">Build your Web Application with One.</h1>
-                    <h2 class="h5 text-white-op push-50 visibility-hidden" data-toggle="appear" data-class="animated fadeInDown">Powerful, flexible and reliable UI framework that just works. Your valuable feedback made it happen.</h2>
-                    <a class="btn btn-rounded btn-noborder btn-lg btn-primary visibility-hidden" data-toggle="appear" data-class="animated bounceIn" data-timeout="800" href="frontend_pricing.html">Purchase Today</a>
-                </div>
-                <div class="row visibility-hidden" data-toggle="appear" data-class="animated fadeInUp">
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <img class="img-responsive pull-b" src="img/various/promo1.jpg" alt="">
+    <script src="js/plugins/slick/slick.min.js"></script>
+    <link rel="stylesheet" href="js/plugins/slick/slick.min.css">
+    <link rel="stylesheet" href="js/plugins/slick/slick-theme.min.css">
+
+    <script>
+        jQuery(function () {
+            // Init page helpers (Slick Slider + Easy Pie Chart plugins)
+            App.initHelpers(['slick']);
+        });
+    </script>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="block">
+                <div class="js-slider remove-margin-b" data-slider-autoplay="true">
+                    <div>
+                        <img class="img-responsive img-homepage-slider" src="http://cf2.imgobject.com/t/p/original/jZcF7xZVvrX2A4qNOqeHpmtbdBT.jpg" alt="" >
                     </div>
+                    <div>
+                        <img class="img-responsive img-homepage-slider" src="http://cf2.imgobject.com/t/p/original/fyy1nDC8wm553FCiBDojkJmKLCs.jpg" alt="" >
+                    </div>
+                    <div>
+                        <img class="img-responsive img-homepage-slider" src="http://cf2.imgobject.com/t/p/original/y52mjaCLoJJzxfcDDlksKDngiDx.jpg" alt="" >
+                    </div>
+
                 </div>
-                <!-- END Section Content -->
-            </section>
+
+            </div>
         </div>
+
     </div>
     <div class="bg-gray-lighter">
         <section class="content content-boxed">

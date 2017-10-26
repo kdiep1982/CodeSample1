@@ -59,6 +59,7 @@ a.inactive {
 a.inactive:focus {
   background-color: transparent !important;
 }
+
 h1,
 h2,
 h3,
@@ -2183,6 +2184,17 @@ a.list-group-item:focus {
 }
 .img-responsive {
   width: 100%;
+}
+.img-homepage-slider{
+  height: 900px;
+}
+.img-front {
+  width: 100%;
+
+  height: 425px;
+}
+.clear-background{
+  width: 80%;
 }
 /*!
  *  Font Awesome 4.7.0 by @davegandy - http://fontawesome.io - @fontawesome
@@ -5123,7 +5135,7 @@ a.list-group-item:focus {
   }
 }
 .header-navbar-transparent #header-navbar {
-  background-color: transparent;
+  background-color: #3e4a59;
   -webkit-box-shadow: none;
   box-shadow: none;
 }

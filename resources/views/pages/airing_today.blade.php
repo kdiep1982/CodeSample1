@@ -20,15 +20,15 @@
 
             <div class="row">
                 @foreach($recent_tvShows as $media)
-                    <div class="col-sm-6 col-lg-3">
-                        <div class="block">
+                    <div class="col-sm-6 col-lg-4">
+                        <div class="block clear-background">
                             <div class="img-container">
                                 <?php
 
                                     $poster=($media->poster !=''? $media->poster: "img/photos/no-image-available-icon.jpg" )
 
                                 ?>
-                                <img class="img-responsive" src="<?php echo $poster;?>" height="283" width="424">
+                                <img class="img-responsive img-front"  src="<?php echo $poster;?>">
                                 <div class="img-options">
                                     <div class="img-options-content">
                                         <div class="push-20">
@@ -40,8 +40,8 @@
 
                             <div class="block-content">
                                 <div class="push-10">
-                                    <div class="h4 font-w600 text-success pull-right push-10-l"><i class="fa fa-heart pull-right" aria-hidden="true"></i>{{$media->vote_average}}</div>
-                                    <a class="h4" href="detail/{{$media->media_id}}">{{$media->title}}</a>
+                                    <div class="h5 font-w600 text-success pull-right push-10-l"><i class="fa fa-heart pull-right" aria-hidden="true"></i>{{$media->vote_average}}</div>
+                                    <a class="h5" href="detail/{{$media->id}}"><?php echo substr($media->title,0,25); ?></a>
                                 </div>
 
                                 <p class="text-muted">Status: {{$media->status}}</p>

@@ -39,31 +39,31 @@ class MediasController extends Controller
     
 
     public function newArrival(){
-        $new_movies=Media::where([['type','=','Movie'],['status','=','Released'], ['release_date','<=',date('Y-m-d')]])->orderBy('release_date', 'desc')->paginate(16);
+        $new_movies=Media::where([['type','=','Movie'],['status','=','Released'], ['release_date','<=',date('Y-m-d')]])->orderBy('release_date', 'desc')->paginate(15);
 
         return view('pages.new_arrival',compact('new_movies'));
     }
     public function topRated(){
-        $top_rated=Media::where([['type','=','Movie'],['status','=','Released']])->orderBy('vote_average', 'desc')->paginate(16);
+        $top_rated=Media::where([['type','=','Movie'],['status','=','Released']])->orderBy('vote_average', 'desc')->paginate(15);
         return view('pages.top_rated', compact('top_rated'));
     }
     public function upcoming(){
-        $upcoming=Media::where([['type','=','Movie'],['status','=','Released'], ['release_date','>',date('Y-m-d')]])->orderBy('release_date', 'asc')->paginate(16);
+        $upcoming=Media::where([['type','=','Movie'], ['release_date','>',date('Y-m-d')]])->orderBy('release_date', 'asc')->paginate(15);
         return view('pages.upcoming',compact('upcoming'));
     }
 
     public function airingToday(){
-        $recent_tvShows = Media::where([['type','=','TV'],['title','!=','']])->orderBy('release_date', 'desc')->paginate(16);
+        $recent_tvShows = Media::where([['type','=','TV'],['title','!=','']])->orderBy('release_date', 'desc')->paginate(15);
         return view('pages.airing_today',compact('recent_tvShows'));
     }
 
     public function topRatedTV(){
-        $top_rated=Media::where([['type','=','TV']])->orderBy('vote_average', 'desc')->paginate(16);
+        $top_rated=Media::where([['type','=','TV']])->orderBy('vote_average', 'desc')->paginate(15);
         return view('pages.topRated_tv', compact('top_rated'));
     }
 
     public function popularTV(){
-        $popular=Media::where([['type','=','TV']])->orderBy('rating', 'desc')->paginate(16);
+        $popular=Media::where([['type','=','TV']])->orderBy('rating', 'desc')->paginate(15);
         return view('pages.popular_tv', compact('popular'));
     }
 

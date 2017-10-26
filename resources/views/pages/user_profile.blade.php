@@ -42,13 +42,19 @@
                             <div class="text-warning push-10-t animated flipInX">
                                 <?php
                                     $counter=0;
-                                    foreach ($review_ratings as $rating)
-                                    {
-                                        $counter += (int)$rating->review_rating;
+                                    $review_count=count($review_ratings);
+                                    if($review_count!=0) {
+                                        foreach ($review_ratings as $rating)
+                                        {
+                                            $counter += (int)$rating->review_rating;
+                                        }
+                                        $overall_ratings=$counter/count($review_ratings);
+                                        for($i=1; $i<=$overall_ratings; $i++){
+                                            echo  "<i class='fa fa-star'></i>";
+                                        }
                                     }
-                                    $overall_ratings=$counter/count($review_ratings);
-                                    for($i=1; $i<=$overall_ratings; $i++){
-                                        echo  "<i class='fa fa-star'></i>";
+                                    else{
+                                        echo "No reviews yet";
                                     }
                                 ?>
 
@@ -81,88 +87,6 @@
                     </div>
                     <!-- END About -->
 
-                    <!-- Followers -->
-                    <div class="block block-opt-refresh-icon6">
-                        <div class="block-header">
-                            <ul class="block-options">
-                                <li>
-                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                                </li>
-                            </ul>
-                            <h3 class="block-title"><i class="fa fa-fw fa-share-alt"></i> Followers</h3>
-                        </div>
-                        <div class="block-content">
-                            <ul class="nav-users push">
-                                <li>
-                                    <a href="base_pages_profile.html">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar13.jpg" alt="">
-                                        <i class="fa fa-circle text-success"></i> George Stone
-                                        <div class="font-w400 text-muted"><small>Web Developer</small></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="base_pages_profile.html">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar4.jpg" alt="">
-                                        <i class="fa fa-circle text-warning"></i> Amy Hunter
-                                        <div class="font-w400 text-muted"><small>Web Designer</small></div>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="base_pages_profile.html">
-                                        <img class="img-avatar" src="assets/img/avatars/avatar1.jpg" alt="">
-                                        <i class="fa fa-circle text-danger"></i> Laura Bell
-                                        <div class="font-w400 text-muted"><small>Photographer</small></div>
-                                    </a>
-                                </li>
-                            </ul>
-                            <div class="text-center push">
-                                <small><a href="javascript:void(0)">Load More..</a></small>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END Followers -->
-
-                    <!-- Products -->
-                    <div class="block block-opt-refresh-icon6">
-                        <div class="block-header">
-                            <ul class="block-options">
-                                <li>
-                                    <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
-                                </li>
-                            </ul>
-                            <h3 class="block-title"><i class="fa fa-fw fa-briefcase"></i> Products</h3>
-                        </div>
-                        <div class="block-content">
-                            <ul class="list list-simple list-li-clearfix">
-                                <li>
-                                    <a class="item item-rounded pull-left push-10-r bg-info" href="javascript:void(0)">
-                                        <i class="si si-rocket text-white-op"></i>
-                                    </a>
-                                    <h5 class="push-10-t">MyPanel</h5>
-                                    <div class="font-s13">Responsive App Template</div>
-                                </li>
-                                <li>
-                                    <a class="item item-rounded pull-left push-10-r bg-amethyst" href="javascript:void(0)">
-                                        <i class="si si-calendar text-white-op"></i>
-                                    </a>
-                                    <h5 class="push-10-t">Project Time</h5>
-                                    <div class="font-s13">Web application</div>
-                                </li>
-                                <li>
-                                    <a class="item item-rounded pull-left push-10-r bg-danger" href="javascript:void(0)">
-                                        <i class="si si-speedometer text-white-op"></i>
-                                    </a>
-                                    <h5 class="push-10-t">iDashboard</h5>
-                                    <div class="font-s13">Bootstrap Admin Template</div>
-                                </li>
-                            </ul>
-                            <div class="text-center push">
-                                <small><a href="javascript:void(0)">View More..</a></small>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- END Products -->
-
                     <!-- Ratings -->
                     <div class="block block-opt-refresh-icon6">
                         <div class="block-header">
@@ -171,52 +95,36 @@
                                     <button type="button" data-toggle="block-option" data-action="refresh_toggle" data-action-mode="demo"><i class="si si-refresh"></i></button>
                                 </li>
                             </ul>
-                            <h3 class="block-title"><i class="fa fa-fw fa-star"></i> Ratings</h3>
+                            <h3 class="block-title"><i class="fa fa-fw fa-star"></i> My Ratings</h3>
                         </div>
                         <div class="block-content">
                             <ul class="list list-simple">
-                                <li>
-                                    <div class="push-5 clearfix">
-                                        <div class="text-warning pull-right">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <a class="font-w600" href="base_pages_profile.html">Dennis Ross</a>
-                                        <span class="text-muted">(5/5)</span>
-                                    </div>
-                                    <div class="font-s13">Flawless design execution! I'm really impressed with the product, it really helped me build my app so fast! Thank you!</div>
-                                </li>
-                                <li>
-                                    <div class="push-5 clearfix">
-                                        <div class="text-warning pull-right">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <a class="font-w600" href="base_pages_profile.html">Adam Hall</a>
-                                        <span class="text-muted">(5/5)</span>
-                                    </div>
-                                    <div class="font-s13">Great value for money and awesome support! Would buy again and again! Thanks!</div>
-                                </li>
-                                <li>
-                                    <div class="push-5 clearfix">
-                                        <div class="text-warning pull-right">
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                        </div>
-                                        <a class="font-w600" href="base_pages_profile.html">Ethan Howard</a>
-                                        <span class="text-muted">(5/5)</span>
-                                    </div>
-                                    <div class="font-s13">Working great in all my devices, quality and quantity in a great package! Thank you!</div>
-                                </li>
+                                <?php
+                                    $counter=0;
+                                    $review_count=count($review_ratings);
+                                    if($review_count!=0) {
+                                        foreach ($review_ratings as $rating)
+                                        {
+                                           ?>
+                                            <li>
+                                            <div class="push-5 clearfix">
+                                                <div class="text-warning pull-right">
+                                                    <?php for($i=0; $i<$rating->review_rating; $i++)
+                                                        echo "<i class='fa fa-star'></i>";
+                                                    ?>
+                                                </div>
+                                                <a class="font-w600" href="detail/{{$rating->id}}">{{$rating->title}}</a>
+
+                                            </div>
+                                            <div class="font-s13">{{$rating->review_content}}</div>
+                                        </li>
+                                       <?php
+                                        }
+                                    }
+                                    else{
+                                      echo "No reviews yet";
+                                    }
+                                ?>
                             </ul>
                             <div class="text-center push">
                                 <small><a href="javascript:void(0)">Read More..</a></small>
@@ -235,7 +143,42 @@
                         <div class="block-content">
                             <div class="block block-transparent pull-r-l">
                                 <div class="block-content block-content-full">
-                                   My watchlist
+                                    <table class="table table-condensed">
+                                        <thead>
+                                        <tr>
+                                            <th class="text-center" style="width: 50px;">#</th>
+                                            <th>Title</th>
+                                            <th>Rating</th>
+                                            <th class="hidden-xs" style="width: 15%;">Type</th>
+
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <?php
+                                            $counter =1;
+                                            foreach($user_watchlist as $watchlist){
+                                               echo "<tr>";
+                                            echo "<td class='text-center'>".$counter."</td>";
+                                            echo "<td><a href='detail/$watchlist->id'>$watchlist->title</a></td>";
+                                            echo "<td>5 stars</td>";
+                                            if($watchlist->type=="Movie"){
+                                                echo "<td class='hidden-xs'><span class='label label-warning'>$watchlist->type</span></td>";
+                                            }
+                                            elseif ($watchlist->type="TV"){
+                                                echo "<td class='hidden-xs'><span class='label label-info'>$watchlist->type</span></td>";
+                                            }
+                                            elseif ($watchlist->type="Anime"){
+                                                echo "<td class='hidden-xs'><span class='label label-success'>$watchlist->type</span></td>";
+                                            }
+                                            echo "</tr>";
+
+                                            $counter ++;
+                                            }
+                                        ?>
+
+                                        </tbody>
+                                    </table>
+
                                 </div>
                             </div>
                         </div>

@@ -23,7 +23,7 @@ class CreateCastsTable extends Migration
             $table->text('profile');
 
             $table->text('cast_character');
-            $table->mediumInteger('credit_id');
+            $table->text('credit_id');
             $table->timestamps();
         });
     }

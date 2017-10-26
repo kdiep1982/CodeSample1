@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Media;
 use App\Models\Review;
+use App\Models\Watchlist;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -30,6 +32,7 @@ class UsersController extends Controller
     public function profile(){
 
         $user_email = \Auth::user()->email;
+        $user_id = \Auth::user()->id;
 
         $tv_reviews = count(\DB::table('medias')->join('media_review', 'media_review.media_id','=','medias.id')->join('reviews','reviews.id','=','media_review.review_id')
             ->select('medias.id')->where([['medias.type','=','TV'],['reviews.author','=',$user_email]])->get());
@@ -37,16 +40,25 @@ class UsersController extends Controller
         $movie_reviews = count(\DB::table('medias')->join('media_review', 'media_review.media_id','=','medias.id')->join('reviews','reviews.id','=','media_review.review_id')
             ->select('medias.id')->where([['medias.type','=','Movie'],['reviews.author','=',$user_email]])->get());
 
-
         $review_ratings =\DB::table('medias')->join('media_review', 'media_review.media_id','=','medias.id')->join('reviews','reviews.id','=','media_review.review_id')
-            ->select('reviews.review_rating')->where([['reviews.author','=',$user_email]])->get();
+            ->select('reviews.review_rating', 'reviews.review_content','medias.title','medias.id')->where([['reviews.author','=',$user_email]])->get();
 
-        return view('pages.user_profile',compact('movie_reviews','tv_reviews','review_ratings'));
+        $user_watchlist = \DB::table('medias')->join('user_watchlist', 'user_watchlist.media_id','=','medias.id')->select('medias.title','medias.type','medias.id')->where('user_watchlist.user_id','=',$user_id)->get();
+
+
+        return view('pages.user_profile',compact('movie_reviews','tv_reviews','review_ratings','user_watchlist'));
 
     }
 
     public function watchlist($id){
+        $user_watchlist = new Watchlist();
+        $user=\Auth::user();
+        $user_id=$user->id;
+        $user_watchlist->user_id=$user_id;
+        $user_watchlist->media_id=$id;
+        $user_watchlist->save();
 
+        return ("Watchlist save");
     }
 
 }

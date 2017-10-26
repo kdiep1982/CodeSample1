@@ -10,10 +10,14 @@
 
             $(".watchlist").click(function(){
                 var val=$("#mediaID").val();
+                var host = window.location.host;
+
                 $.ajax({
-                    url: 'http://45.55.6.48/bingewatch/public/watchlist/'+val,
+                    type: "GET",
+                    crossDomain: false,
+                    url: 'http://192.81.134.71/Bingewatch/public/watchlist/'+val,
                     success:function(data){
-                        alert(data);
+                        $(" <div class='alert alert-success'><p><i class='fa fa-check'></i> The media successfully added to your watchinglist</p></div>").prependTo(".alert");
                     }
                 });
             });
@@ -44,7 +48,7 @@
                                 <div class="block-content block-content-full clearfix">
                                     <div class="pull-right">
                                         <?php $profile=($cast->profile !=''? $cast->profile : "../img/photos/no-image-available-icon.jpg" )?>
-                                        <img class="img-avatar" src="<?php echo $profile;?>" alt="">
+                                        <img class="img-avatar" src="<?php echo url($profile);?>" alt="">
                                     </div>
                                     <div class="pull-left push-10-t">
                                         <div class="font-w600 push-5">{{$cast->cast_name}}</div>
@@ -62,7 +66,7 @@
                                 <div class="block-content block-content-full clearfix">
                                     <div class="pull-right">
                                         <?php $profile=($d->profile !=''? $d->profile: "../img/photos/no-image-available-icon.jpg" )?>
-                                        <img class="img-avatar" src="<?php echo $profile; ?>" alt="">
+                                        <img class="img-avatar" src="<?php echo url($profile); ?>" alt="">
                                     </div>
                                     <div class="pull-left push-10-t">
                                         <div class="font-w600 push-5">{{$d->cast_name}}</div>
@@ -76,7 +80,7 @@
                                 <div class="block-content block-content-full clearfix">
                                     <div class="pull-right">
                                         <?php $profile=($staff->profile !=''? $staff->profile: "../img/photos/no-image-available-icon.jpg" )?>
-                                        <img class="img-avatar" src="<?php echo $profile ;?>" alt="">
+                                        <img class="img-avatar" src="<?php echo url($profile) ;?>" alt="">
                                     </div>
                                     <div class="pull-left push-10-t">
                                         <div class="font-w600 push-5">{{$staff->cast_name}}</div>
@@ -92,15 +96,16 @@
                 <h3>Movie Detail</h3>
                 <div class="col-lg-9">
                     <!-- Product -->
-                    <div class="block">
+                    <div class="block alert">
                         <div class="block-content">
+
                             <div class="row items-push">
                                 <div class="col-sm-6">
                                     <!-- Images -->
                                     <div class="row js-gallery">
                                         <div class="col-xs-12 push-10">
-                                            <a class="img-link" href="{{$movie_detail->poster}}">
-                                                <img class="img-responsive" src="{{$movie_detail->poster}}">
+                                            <a class="img-link" href="{{url($movie_detail->poster)}}">
+                                                <img class="img-responsive" src="{{url($movie_detail->poster)}}">
                                             </a>
                                         </div>
 

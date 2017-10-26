@@ -16,6 +16,7 @@
  */
 
 Route::get('/','MediasController@index');
+
 //Route::post('/login/{id?}','UsersController@login');
 Route::post('/login/','UsersController@login');
 
